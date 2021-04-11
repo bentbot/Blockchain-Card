@@ -134,13 +134,13 @@ class CardReader():
                 MSR605ConnectError: An error occurred when connecting to the MSR605
         """
         
-        print ("\nATTEMPTING TO CONNECT TO MSR605")
+        # print ("\nATTEMPTING TO CONNECT TO MSR605")
         
         #this looks for the first available COM port, can be changed to look for the MSR
         for x in range(0, 255):
             try:
 
-                self.__serialConn = serial.Serial('COM' + str(x))  # opens the serial port
+                self.__serialConn = serial.Serial('/dev/cu.usbserial-142430')  # opens the serial port
             except(serial.SerialException, OSError):
                 pass #continues going through the loop
             
@@ -154,7 +154,7 @@ class CardReader():
 
         #this is in the Programmers Manual under 'Section 8 Communication Sequence', it states
         #how to properly initialize the MSR605
-        print ("\nINITIALIZING THE MSR605")
+        # print ("\nINITIALIZING THE MSR605")
         
         self.reset()
         
@@ -183,7 +183,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nCLOSING COM PORT SERIAL CONNECTION")
+        # print ("\nCLOSING COM PORT SERIAL CONNECTION")
         
         self.__serialConn.close()
 
@@ -202,7 +202,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nATTEMPTING TO RESET THE MSR605")
+        # print ("\nATTEMPTING TO RESET THE MSR605")
         
         # flusing the input and output solves the issue where the MSR605 app/gui would need
         # to be restarted if there was an issue like say swiping the card backwards, I 
@@ -222,7 +222,7 @@ class CardReader():
         self.__serialConn.flush() 
         
         
-        print ("MSR605 SHOULD'VE BEEN RESET")
+        print ("MSR605 RESET")
         #there is no response from the MSR605
         
         return None
@@ -345,7 +345,7 @@ class CardReader():
         else:
             
             tracks[0] = self.read_until(ESCAPE, 1, True)
-            print ("TRACK 1: ", tracks[0])
+            #print ("TRACK 1: ", tracks[0])
             
             #removes any ? and %, theses are part of the ISO standard and also have
             #to be removed for writing to the card, the MSR605 adds the question marks automatically
@@ -367,7 +367,7 @@ class CardReader():
         else:
             
             tracks[1] = self.read_until(ESCAPE, 2, True)
-            print ("TRACK 2: " , tracks[1])
+            #print ("TRACK 2: " , tracks[1])
             
             if (len(tracks[1]) > 0):
                 if(tracks[1][-1] == '?'):
@@ -387,7 +387,7 @@ class CardReader():
         else:
             
             tracks[2] = self.read_until(FILE_SEPERATOR, 3, True)
-            print ("TRACK 3: " , tracks[2])
+            #print ("TRACK 3: " , tracks[2])
             
             if (len(tracks[2]) > 0):
                 if(tracks[2][-1] != '?'):
@@ -438,7 +438,7 @@ class CardReader():
         
         print ("\nWRITING TO DEVICE/CARD")
         
-        print ("DATA TO WRITE: " , dataToWrite)
+        # print ("DATA TO WRITE: " , dataToWrite)
         
         #complete command code when writing to magstripe card
         self.__serialConn.write(ESCAPE + WRITE + dataToWrite)
@@ -553,7 +553,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nLED'S OFF")
+        # print ("\nLED'S OFF")
         
         #command code to turn off all the LED's, note that LED's turn on automatically based
         #on certain commands like read and write
@@ -578,7 +578,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nLED'S ON")
+        # print ("\nLED'S ON")
         
         #command code to turn on all the LED's, note that LED's turn on automatically based
         #on certain commands like read and write
@@ -602,7 +602,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nGREEN LED ON")
+        # print ("\nGREEN LED ON")
         
         #command code to turn on the green LED, note that LED's turn on automatically based
         #on certain commands like read and write
@@ -626,7 +626,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nYELLOW LED ON")
+        # print ("\nYELLOW LED ON")
         
         #command code to turn on the yellow LED, note that LED's turn on automatically based
         #on certain commands like read and write
@@ -650,7 +650,7 @@ class CardReader():
                 Nothing
         """
         
-        print ("\nRED LED ON")
+        # print ("\nRED LED ON")
         
         #command code to turn on the red LED, note that LED's turn on automatically based
         #on certain commands like read and write
@@ -681,7 +681,7 @@ class CardReader():
                 CommunicationTestError: An error occurred while testing the MSR605's communication
         """
         
-        print ("\nCHECK COMMUNICATION LINK BETWEEN THE COMPUTER AND THE MSR605")
+        # print ("\nCHECK COMMUNICATION LINK BETWEEN THE COMPUTER AND THE MSR605")
         
         #command code for testing the MSR605 Communication with the Computer 
         self.__serialConn.write(ESCAPE + COMMUNICATIONS_TEST)
@@ -718,7 +718,7 @@ class CardReader():
                 SensorTestError: An error occurred while testing the MSR605's communication
         """
         
-        print ("\nTESTING SENSOR'S")
+        print ("\nTESTING SENSORS")
         
         #command code for testing the card sensing circuit
         self.__serialConn.write(ESCAPE + SENSOR_TEST)
@@ -732,7 +732,7 @@ class CardReader():
         if self.__serialConn.read() != b'0':
             raise cardReaderExceptions.SensorTestError("SENSOR TEST ERROR, looking for 0(\x30)")
     
-        print ("TESTS WERE SUCCESSFUL")
+        print ("SENSOR TESTS WERE SUCCESSFUL")
     
         return None
     
@@ -800,7 +800,7 @@ class CardReader():
             SetCoercivityError: An error occurred when setting the coercivity 
         """
         
-        print ("\nSETTING THE MSR605 TO HI-COERCIVITY")
+        #print ("\nSETTING THE MSR605 TO HI-COERCIVITY")
     
         #command code for setting the MSR605 to Hi-Coercivity
         
@@ -830,7 +830,7 @@ class CardReader():
                                                             "for 0(\x30), Device might have not been set "
                                                             "to Hi-Co", "high")
         
-        print ("SUCCESSFULLY SET THE MSR605 TO HI-COERCIVITY")
+        print ("SET THE MSR605 TO HI-COERCIVITY")
         
         return None
     
@@ -850,7 +850,7 @@ class CardReader():
             SetCoercivityError: An error occurred when setting the coercivity 
         """
         
-        print ("\nSETTING THE MSR605 TO LOW-COERCIVITY")
+        #print ("\nSETTING THE MSR605 TO LOW-COERCIVITY")
     
         #command code for setting the MSR605 to Low-Coercivity
         self.__serialConn.write(ESCAPE + LOW_CO)
@@ -877,7 +877,7 @@ class CardReader():
                                                             "looking for 0(\x30), Device might have "
                                                             "not been set to Low-Co", "low")
         
-        print ("SUCCESSFULLY SET THE MSR605 TO LOW-COERCIVITY")
+        print ("SET THE MSR605 TO LOW-COERCIVITY")
         
         return None
     
@@ -901,7 +901,7 @@ class CardReader():
             GetCoercivityError: An error occurred when setting the coercivity 
         """
     
-        print ("\nGETTING THE MSR60 COERCIVITY (HI OR LOW)")
+        #print ("\nGETTING THE MSR60 COERCIVITY (HI OR LOW)")
     
         #command code for getting the MSR605 Coercivity
         self.__serialConn.write(ESCAPE + HI_OR_LOW_CO)
@@ -925,11 +925,11 @@ class CardReader():
         coMode = self.__serialConn.read()
         
         if coMode == b'h':
-            print ("COERCIVITY: HI-CO")
+            #print ("COERCIVITY: HI-CO")
             return "HI-CO"
         
         elif coMode == b'l':
-            print ("COERCIVITY: LOW-CO")
+            #print ("COERCIVITY: LOW-CO")
             return "LOW-CO"
         
         else:
@@ -1038,7 +1038,7 @@ class CardReader():
         
         #reads in the Status Byte
         status = (self.__serialConn.read()).decode()
-        print ("STATUS: " , status)
+        # print ("STATUS: " , status)
         #checks what the stauts byte coorelates with, based off of the info provided from the
         #MSR605  programming manual
         if (status == '0'):
@@ -1089,7 +1089,7 @@ class CardReader():
             GetDeviceModelError: An error occurred when obtaining the device model
         """
         
-        print ("\nGETTING THE DEVICE MODEL")
+        # print ("\nGETTING THE DEVICE MODEL")
     
         #command code for getting the device model
         self.__serialConn.write(ESCAPE + DEVICE_MODEL)
@@ -1108,7 +1108,7 @@ class CardReader():
                                                             "S(\x53), check the response, the model "
                                                             "might be right")
         
-        print ("SUCCESSFULLY RETRIEVED THE DEVICE MODEL")
+        # print ("SUCCESSFULLY RETRIEVED THE DEVICE MODEL")
         
         return model
     
@@ -1129,7 +1129,7 @@ class CardReader():
                                         version
         """
     
-        print ("\nGETTING THE FIRMWARE VERSION OF THE MSR605")
+        # print ("\nGETTING THE FIRMWARE VERSION OF THE MSR605")
     
         #command code for getting the firmware version of the MSR605
         self.__serialConn.write(ESCAPE + FIRMWARE)
@@ -1144,7 +1144,7 @@ class CardReader():
         
         print ("FIRMWARE: " + firmware)
         
-        print ("SUCCESSFULLY RETRIEVED THE FIRMWARE VERSION")
+        # print ("SUCCESSFULLY RETRIEVED THE FIRMWARE VERSION")
         return firmware
     
     
