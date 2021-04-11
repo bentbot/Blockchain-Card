@@ -1,28 +1,18 @@
+Blockchain Magnetic Card Wallet Creation Tool
+  ------------------
+
+_Edited: 11  April, 2021_
+
+Authors:
+- Liam Hogan - bentbot@outlook.com
+- Manwinder Sidhu - manwindersapps@gmail.com
+
+Contact: bentbot@outlook.com
+Platform: Windows / Mac
+Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkinter)
+Legal Documentation: LICENSE (file) and also in some of the classes
 
 
-
-
-  **Blockchain Magnetic Card Wallet Creation Tool**
-
-  -------------------------
-  Edited: 11  April 2021
-  -----------------------
-  -----------------------
-  Authors: 
-    Liam Hogan
-    bentbot@outlook.com
-    Manwinder Sidhu
-    manwindersapps@gmail.com
-  --------------------------------
-  Contact: bentbot@outlook.com
-  --------------------------------
-  Platform: Windows / Mac
-  ---------------------------------------------------------------------------------------------
-  Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkinter)
-  -------------------------------------------------------------------
-  Legal Documentation: LICENSE (file) and also in some of the classes
-
-  ------------------  
   Libraries Required
   ------------------
   PySerial for communication between the PC and MSR605 (https://github.com/pyserial/pyserial)
@@ -30,7 +20,7 @@
   Tkinter for the GUI
   
 
-  --------------------
+
   Hardware Description
   --------------------
   The MSR605 is a card reader/writer, its writes to the standard magstripe cards
@@ -40,13 +30,13 @@
   online
 
 
-  -------------------
+
   Project Description
   -------------------
   A simple way to store a block-chain wallet in your actual wallet. Simply put, this application encodes your BitCoin (or alternative crypto's) public and private keys on to magnetic cards for safe storage or alternative uses. Use this to keep a physical copy of your BitCoin wallet backup with you. If you wanted to, you could make additional hardware for accessing or spending the funds by integrating with blockchain-core.
 
   
-  ----------------
+
   File Description
   ----------------
   GUI.py - the graphical interface that allows you to control the MSR605
@@ -66,7 +56,7 @@
 
 
 
-  ----
+
   Bugs
   ----
   April 11, 2021
