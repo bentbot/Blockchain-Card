@@ -25,7 +25,10 @@ Legal Documentation: LICENSE (file) and also in some of the classes
   
   Tkinter for the GUI
   
-
+  Installation & Run
+  ------------------
+      `pip install PySerial`
+      `python ./GUI.py`
 
   Hardware Description
   --------------------
