@@ -13,6 +13,12 @@ Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkin
 Legal Documentation: LICENSE (file) and also in some of the classes
 
 
+
+  Project Description
+  -------------------
+  A simple way to store a block-chain wallet in your actual wallet. Simply put, this application encodes your BitCoin (or alternative crypto's) public and private keys on to magnetic cards for safe storage or alternative uses. Use this to keep a physical copy of your BitCoin wallet backup with you. If you wanted to, you could make additional hardware for accessing or spending the funds by integrating with blockchain-core.
+
+  
   Libraries Required
   ------------------
   PySerial for communication between the PC and MSR605 (https://github.com/pyserial/pyserial)
@@ -29,13 +35,6 @@ Legal Documentation: LICENSE (file) and also in some of the classes
   on ebay. I choose to buy this card reader because it had good documentation
   online
 
-
-
-  Project Description
-  -------------------
-  A simple way to store a block-chain wallet in your actual wallet. Simply put, this application encodes your BitCoin (or alternative crypto's) public and private keys on to magnetic cards for safe storage or alternative uses. Use this to keep a physical copy of your BitCoin wallet backup with you. If you wanted to, you could make additional hardware for accessing or spending the funds by integrating with blockchain-core.
-
-  
 
   File Description
   ----------------
