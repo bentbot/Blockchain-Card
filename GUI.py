@@ -7,7 +7,7 @@ from tkinter import ttk
 from tkinter.messagebox import *
 from tkinter import filedialog
 import sqlite3
-
+SERIAL_PORT = '/dev/cu.usbserial-142430'
 
 class GUI(Frame):    
     def __init__(self, parent):
@@ -243,7 +243,7 @@ class GUI(Frame):
             self.close_connection()
         
         try:
-            self.__msr = cardReader.CardReader()
+            self.__msr = cardReader.CardReader(SERIAL_PORT)
         
         except cardReaderExceptions.MSR605ConnectError as e:
             self.__connected = False

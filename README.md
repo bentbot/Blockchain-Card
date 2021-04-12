@@ -29,6 +29,9 @@ Legal Documentation: LICENSE (file) and also in some of the classes
   ------------------
       pip install PySerial
       python ./GUI.py
+      
+     Update serial port in ./GUI.py line 10:
+     SERIAL_PORT = '/dev/cu.usbserial-142430'
 
   Hardware Description
   --------------------

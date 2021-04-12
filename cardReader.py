@@ -118,7 +118,7 @@ class CardReader():
     
     
     
-    def __init__(self):
+    def __init__(self,serial_port):
         """Connects to the MSR605 using pyserial (serial connection)
         
             Checks the first 256 COM ports, hopefully the MSR605 is connected to
@@ -140,7 +140,7 @@ class CardReader():
         for x in range(0, 255):
             try:
 
-                self.__serialConn = serial.Serial('/dev/cu.usbserial-142430')  # opens the serial port
+                self.__serialConn = serial.Serial(serial_port)  # opens the serial port
             except(serial.SerialException, OSError):
                 pass #continues going through the loop
             
@@ -148,8 +148,8 @@ class CardReader():
         try:
             self.__serialConn
         except(NameError, AttributeError):
-            raise cardReaderExceptions.MSR605ConnectError("THE CARD READER IS BEING USED BY "
-                                                          "SOMETHING ELSE OR IT IS NOT PLUGGED IN")
+            raise cardReaderExceptions.MSR605ConnectError("The card reader is being used by "
+                                                          "something else or it is not plugged in.")
 
 
         #this is in the Programmers Manual under 'Section 8 Communication Sequence', it states
