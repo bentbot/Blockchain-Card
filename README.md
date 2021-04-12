@@ -27,8 +27,8 @@ Legal Documentation: LICENSE (file) and also in some of the classes
   
   Installation & Run
   ------------------
-      `pip install PySerial`
-      `python ./GUI.py`
+      pip install PySerial
+      python ./GUI.py
 
   Hardware Description
   --------------------
