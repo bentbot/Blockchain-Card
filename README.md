@@ -16,7 +16,7 @@ Legal Documentation: LICENSE (file) and also in some of the classes
 
   Project Description
   -------------------
-  A simple way to store a block-chain wallet in your actual wallet. Simply put, this application encodes your BitCoin (or alternative crypto's) public and private keys on to magnetic cards for safe storage or alternative uses. Use this to keep a physical copy of your BitCoin wallet backup with you. If you wanted to, you could make additional hardware for accessing or spending the funds by integrating with blockchain-core.
+  A simple way to store a blockchain wallet data in magnetic cards (like the ones in your real wallet). It's an application that encodes your BitCoin (or orther crypto's) public and private keys and writes them on to a magnetic card for safe storage or for an alternative use case. Use this to keep a physical copy of your BitCoin wallet backup with you... or if you wanted to you could make additional hardware for accessing or spending the funds just by swiping the card.
 
   
   Libraries Required
