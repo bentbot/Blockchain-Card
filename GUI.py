@@ -40,65 +40,59 @@ class GUI(Frame):
         
         self.build_main_window()
 
-    def octal_to_str(self,octal_str):
-        str_converted = ""
-        for octal_char in octal_str.split(" "):
-            str_converted += chr(int(octal_char, 8))
-        return str_converted
-
     def encode_public(self,alpha):
-        i = 0
-        a = ''
-        
-        # TODO
-
-        # for a in alpha:
-            # print (oct(a))
-        # exit();
-
-        # b = ''
-        # for x in alpha:
-        #     if i < 80:
-        #         a = a+x
-        #     else:
-        #         b = b+x
-        #     i=i+1
-        # print (a)
-
-        # ab = [oct(a),oct(b)]
-        # print (ab)
-        # return ab
+        gamma=''; i=0;
+        for a in alpha:
+            beta = int(ord(a))
+            if ( beta < 100 ) :
+                beta = '0'+str(beta);
+            gamma=gamma+''+str(beta);
+        delta=''; epsilon=''; i=0;
+        for g in gamma:
+            if i < 80:
+                delta=delta+g
+            else:
+                epsilon=epsilon+g
+            i=i+1
+        # print(gamma);
+        # print(self.convert_pub(gamma,''));
+        # print([delta,epsilon]);
+        return [delta,epsilon]
 
     def convert_pub(self,alpha,beta):
         gamma = alpha+beta
-        os = "".join(char for char in gamma if char.isdigit())
-        os = ' '.join([os[i:i+3] for i in range(0, len(os), 3)])
-        self.__public_key = self.octal_to_str(os)
+        delta = ""
+        epsilon = "".join(char for char in gamma if char.isdigit())
+        epsilon = " ".join([epsilon[i:i+3] for i in range(0, len(epsilon), 3)])
+        for octal_char in epsilon.split(" "):
+            delta += chr(int(octal_char))
+        self.__public_key = delta
         return self.__public_key
 
     def encode_private(self,alpha):
-        key = ''
-        for x in alpha:
-            if x.islower():
-                key = key+'*'+x.upper()
+        beta = ''
+        for a in alpha:
+            if a.islower():
+                beta = beta+'*'+a.upper()
             else:
-                key = key+x
-        return key
+                beta = beta+a
+        # print(beta);
+        return beta
         
     def convert_priv(self,alpha):
-        key = ''
-        cap = False
-        for x in alpha:
-            if x=='?' or x=='%':
-                cap = False
-            elif x=='*':
-                cap = True
-            elif cap == True:
-                key = key + x.lower()
-                cap = False
+        beta = ''
+        theta = False
+        for a in alpha:
+            if a=='?' or a=='%':
+                theta = False
+            elif a=='*':
+                theta = True
+            elif theta == True:
+                beta = beta + a.lower()
+                theta = False
             else:
-                key = key + x
-        self.__private_key = key;
+                beta = beta + a
+        self.__private_key = beta
         return self.__private_key
 
     def main_window_menu(self):
@@ -406,7 +400,7 @@ class GUI(Frame):
             return None
         
         # tracks = [self.__trackOneEntry.get(1.0, END)[:-1], self.__trackTwoEntry.get(1.0, END)[:-1], self.__trackThreeEntry.get(1.0, END)[:-1]]
-        # public = self.encode_public(self.__pubKeyEntry.get(1.0, END)[:-1])
+        public = self.encode_public(self.__pubKeyEntry.get(1.0, END)[:-1])
         private = self.encode_private(self.__privKeyEntry.get(1.0, END)[:-1])
 
         tracks = [ private, public[0], public[1]  ]
