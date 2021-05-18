@@ -22,6 +22,7 @@ _Edited: 18  May, 2021_
 
   Installation & Run
   ------------------
+  ![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
   - Platform: Windows / Mac
   - Python: 3.5.2
 ````
@@ -38,7 +39,6 @@ _Edited: 18  May, 2021_
       # Update the serial port line in ./GUI.py:12
       SERIAL_PORT = '/dev/cu.usbserial-142430'
 ````
-![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
 
   Hardware Description
   --------------------
