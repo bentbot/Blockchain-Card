@@ -3,11 +3,12 @@ Blockchain Magnetic Card Wallet Creation Tool
 
 _Edited: 18  May, 2021_
 
+![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
+
 Authors:
 - Liam Hogan - bentbot@outlook.com
 - Manwinder Sidhu - manwindersapps@gmail.com
 
-Contact: bentbot@outlook.com
 Platform: Windows / Mac
 Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkinter)
 Legal Documentation: LICENSE (file) and also in some of the classes
