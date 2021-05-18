@@ -56,8 +56,8 @@ _Edited: 18  May, 2021_
 
   File Description
   ----------------
-  GUI.py - the graphical interface that allows you to control the MSR605
-  msr.py - the library that connects to the card reader (mine is MSR605)  
+  - GUI.py - the graphical interface that allows you to control the MSR605
+  - msr.py - the library that connects to the card reader (mine is MSR605)  
 
   Using Alternative Card Readers
   ---------------
