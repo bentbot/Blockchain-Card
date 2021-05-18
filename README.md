@@ -24,7 +24,7 @@ _Edited: 18  May, 2021_
   ------------------
   - Platform: Windows / Mac
   - Python: 3.5.2
-
+````
       # Clone
       git clone https://github.com/bentbot/Blockchain-Card.git
       cd Blockchain-Card
@@ -37,7 +37,7 @@ _Edited: 18  May, 2021_
  
       # Update the serial port line in ./GUI.py:12
       SERIAL_PORT = '/dev/cu.usbserial-142430'
-
+````
 ![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
 
   Hardware Description
