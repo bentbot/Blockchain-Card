@@ -10,9 +10,9 @@ _Edited: 18  May, 2021_
 
   Requirements
   ------------------
-  A MSR605 magnetic card reader / writer (or an equivilent device with a complete python library).
-  One or more standard 3-Stripe magnetic cards.
-  Python 3+
+  - A MSR605 magnetic card reader / writer (or an equivilent device).
+  - One or more standard 3-Stripe magnetic cards.
+  - Python 3+
   
   Authors
   ------------------
@@ -23,8 +23,6 @@ _Edited: 18  May, 2021_
   Installation & Run
   ------------------
   ![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
-  - Platform: Windows / Mac
-  - Python: 3.5.2
 ````
       # Clone
       git clone https://github.com/bentbot/Blockchain-Card.git
@@ -52,16 +50,16 @@ _Edited: 18  May, 2021_
   is different. Some stripes only accept numerals while others accept all alphanumeric characters.
   This application converts the two provided keys into data formatted to fit on a magcard. 
   
-  REMEMBER: In no way is this method secure. Anyone that scans your magcard can read your private key.
+  **REMEMBER**: In no way is this method secure. Anyone that scans your magcard can read your private key.
 
   File Description
   ----------------
-  - GUI.py - the graphical interface that allows you to control the MSR605
-  - msr.py - the library that connects to the card reader (mine is MSR605)  
+  - GUI.py - the graphical interface that allows you to encode keys.
+  - msr.py - the library that connects to the card reader (MSR605).
 
   Using Alternative Card Readers
   ---------------
   Replace the connection line, "msr.msr(SERIAL_PORT)" in GUI.py line ~197, with your new library. 
   Update each function to with equivalent function in your new library. Important references:
-  - read_tracks 	GUI.py:263
-  - write_tracks 	GUI.py:313,334
+  - read_tracks 	GUI.py: 263
+  - write_tracks 	GUI.py: 313,334
