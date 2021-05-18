@@ -1,7 +1,7 @@
 Blockchain Magnetic Card Wallet Creation Tool
   ------------------
 
-_Edited: 11  April, 2021_
+_Edited: 18  May, 2021_
 
 Authors:
 - Liam Hogan - bentbot@outlook.com
@@ -12,26 +12,31 @@ Platform: Windows / Mac
 Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkinter)
 Legal Documentation: LICENSE (file) and also in some of the classes
 
-
-
   Project Description
   -------------------
-  A simple way to store a blockchain wallet data in magnetic cards (like the ones in your real wallet). It's an application that encodes your BitCoin (or orther crypto's) public and private keys and writes them on to a magnetic card for safe storage or for an alternative use case. Use this to keep a physical copy of your BitCoin wallet backup with you... or if you wanted to you could make additional hardware for accessing or spending the funds just by swiping the card.
+  A simple way to store a blockchain wallet data in magnetic cards (like the ones in your real wallet). This is an application that encodes your BitCoin (or orther crypto-coin) public and private keys onto a magnetic card for safe keeping or for use by vendors. You can use this application with an MSR605 card reader to read and write blockchain encoded cards.
 
+  Requirements
+  ------------------
+  A MSR605 magnetic card reader / writer (or an equivilent device with a complete python library).
+  One or more standard 3-Stripe magnetic cards.
+  Python 3+
   
   Libraries Required
   ------------------
-  PySerial for communication between the PC and MSR605 (https://github.com/pyserial/pyserial)
-  
-  Tkinter for the GUI
-  
+  MSR Library [Damien Bobillot - damien.bobillot.2002+msr@m4x.org]
+  Tkinter for the GUI [Manwinder Sidhu - manwindersapps@gmail.com]
+
   Installation & Run
   ------------------
-      pip install PySerial
+      # Start the GUI
       python ./GUI.py
-      
-     Update serial port in ./GUI.py line 10:
-     SERIAL_PORT = '/dev/cu.usbserial-142430'
+
+      # Install serial if needed
+      pip install serial
+ 
+      # Update the serial port line in ./GUI.py:12
+      SERIAL_PORT = '/dev/cu.usbserial-142430'
 
   Hardware Description
   --------------------
@@ -41,30 +46,14 @@ Legal Documentation: LICENSE (file) and also in some of the classes
   on ebay. I choose to buy this card reader because it had good documentation
   online
 
-
   File Description
   ----------------
   GUI.py - the graphical interface that allows you to control the MSR605
-  
-  MSR605Test.py - this tests the devices different functions, it's pretty much tests all the functions that
-                  the device can perform
+  msr.py - the library that connects to the card reader (MSR605)  
 
-  cardReader.py - the interface between python and the MSR605, this class sends the command over serial and
-                  returns any info requested
-                  
-  isoStandardDictionary.py - contains 2 dictionaries (track 2 and 3 have the same standard for what characters
-                             are allowed) and a function that tells you if a character is valid for a given track
-                             
-                             
-  cardReaderExceptions.py - The MSR605 provides feed back in the case errors arise, this information can be useful
-                            and this class contains exceptions for each of the functions the MSR605 can preform
-
-
-
-
-  Bugs
-  ----
-  April 11, 2021
-  Writing cards does not currently work.
-  
-  
+  Alternative Card Readers
+  ---------------
+  Replace the connection line, "msr.msr(SERIAL_PORT)" in GUI.py line ~197, with your new library. 
+  Update each function to with equivalent function in your new library. Important references:
+  - read_tracks 	GUI.py:263
+  - write_tracks 	GUI.py:313,334
