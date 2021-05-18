@@ -3,18 +3,9 @@ Blockchain Magnetic Card Wallet Creation Tool
 
 _Edited: 18  May, 2021_
 
-![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
-
-Authors:
-- Liam Hogan - bentbot@outlook.com
-- Manwinder Sidhu - manwindersapps@gmail.com
-
-Platform: Windows / Mac
-Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkinter)
-Legal Documentation: LICENSE (file) and also in some of the classes
-
   Project Description
   -------------------
+  Encodes the entire public & private keys of a blockchain address to a magnetic stripe card.
   A simple way to store a blockchain wallet data in magnetic cards (like the ones in your real wallet). This is an application that encodes your BitCoin (or orther crypto-coin) public and private keys onto a magnetic card for safe keeping or for use by vendors. You can use this application with an MSR605 card reader to read and write blockchain encoded cards.
 
   Requirements
@@ -28,6 +19,14 @@ Legal Documentation: LICENSE (file) and also in some of the classes
   MSR Library [Damien Bobillot - damien.bobillot.2002+msr@m4x.org]
   Tkinter for the GUI [Manwinder Sidhu - manwindersapps@gmail.com]
 
+  Authors:
+  - Liam Hogan - bentbot@outlook.com
+  - Manwinder Sidhu - manwindersapps@gmail.com
+
+  Platform: Windows / Mac
+  Python: 3.5.2 (I originally wrote this in 2.7 but I think I had issues with Tkinter)
+  Legal Documentation: LICENSE (file) and also in some of the classes
+
   Installation & Run
   ------------------
       # Start the GUI
@@ -38,6 +37,8 @@ Legal Documentation: LICENSE (file) and also in some of the classes
  
       # Update the serial port line in ./GUI.py:12
       SERIAL_PORT = '/dev/cu.usbserial-142430'
+
+![Blockchain Card screenshot | May 18, 2021](https://github.com/bentbot/Blockchain-Card/blob/master/screenshot.png?raw=true)
 
   Hardware Description
   --------------------
